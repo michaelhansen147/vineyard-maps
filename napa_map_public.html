@@ -22,7 +22,7 @@ select { font-size:12px; background:#0d1b3e; color:#eee; border:1px solid #2E75B
 .fbtn.active { background:#2E75B6; color:#fff; border-color:#4a9ede; }
 .toggle-wrap { display:flex; align-items:center; gap:5px; }
 input[type=checkbox] { cursor:pointer; accent-color:#2E75B6; }
-#map { flex:1; min-height:0; }
+#map { flex:1; min-height:0; min-height:400px; }
 #disclaimer { padding:5px 14px; background:#0d1b3e; font-size:10px; color:#6b8cba; border-top:1px solid #1e3a6e; flex-shrink:0; }
 
 /* Leaflet layer control */
@@ -62,26 +62,20 @@ input[type=checkbox] { cursor:pointer; accent-color:#2E75B6; }
 .tag-qual { background:#d4edda; color:#155724; }
 
 /* Legend */
-#legend { position:absolute; bottom:28px; right:10px; z-index:1000;
-           background:rgba(15,27,63,0.95); padding:11px 14px; border-radius:8px;
-           border:1px solid #2E75B6; font-size:11px; min-width:170px; }
+#legend { background:rgba(15,27,63,0.97); padding:10px 16px;
+           border-top:1px solid #2E75B6; font-size:11px;
+           display:flex; flex-wrap:wrap; gap:16px; align-items:center; flex-shrink:0; }
 #legend h4 { font-size:11px; color:#a8c4e0; margin-bottom:7px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
 .leg-row { display:flex; align-items:center; gap:8px; margin-bottom:4px; color:#ccc; font-size:10px; }
 .ldot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
 .lsq  { width:11px; height:11px; flex-shrink:0; }
 
 /* Stats panel */
-#stats-panel { position:absolute; top:10px; right:10px; z-index:1000;
-                background:rgba(15,27,63,0.95); padding:10px 13px; border-radius:8px;
-                border:1px solid #2E75B6; font-size:11px; min-width:155px; }
-#stats-panel .sl { color:#a8c4e0; margin-bottom:3px; }
-#stats-panel .sv { color:#4fc3f7; font-weight:700; }
+#stats-panel { display:none; }
 
 /* Choropleth toggle */
-#choro-toggle { position:absolute; bottom:28px; left:50px; z-index:1000;
-                 background:rgba(15,27,63,0.95); padding:7px 12px; border-radius:8px;
-                 border:1px solid #2E75B6; font-size:11px; display:flex; align-items:center; gap:7px; }
-#choro-toggle label { color:#a8c4e0; }
+#choro-toggle { display:flex; align-items:center; gap:7px; font-size:11px; }
+#choro-toggle label { color:#a8c4e0; cursor:pointer; }
 
 .ava-label {
   color: #ffffff;
@@ -100,6 +94,11 @@ input[type=checkbox] { cursor:pointer; accent-color:#2E75B6; }
   pointer-events: none;
   transform: translate(-50%, -50%);
 }
+
+
+#bottom-bar { display:flex; align-items:center; gap:16px; padding:8px 14px;
+              background:rgba(15,27,63,0.97); border-top:1px solid #2E75B6;
+              flex-shrink:0; flex-wrap:wrap; }
 
 </style>
 </head>
