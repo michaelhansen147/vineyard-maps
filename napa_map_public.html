@@ -381,21 +381,7 @@ function updateLegend() {
     b.innerHTML = CHORO_FILLS.map((c,i)=>{
       const lo = CHORO_BREAKS[i], hi = CHORO_BREAKS[i+1];
       const lbl = hi===Infinity ? `> ${(lo/1000).toFixed(0)}K` : `${(lo/1000).toFixed(0)}K–${(hi/1000).toFixed(0)}K`;
-      return `<span class="leg-item"><span class="leg-swatch" style="background:${c}"></span>${lbl}</span>`;
-    }).join('');
-  } else {
-    b.innerHTML = '<span style="color:#6b8cba;font-size:10px;">Choropleth off</span>';
-  }
-}
-  // Choropleth legend section
-  if (showChoro) {
-    b.innerHTML += '<div style="margin-top:8px;padding-top:6px;border-top:1px solid #2a3f6e"><div style="color:#a8c4e0;font-weight:700;margin-bottom:4px;text-transform:uppercase;font-size:10px;letter-spacing:.4px;">AVA Median Adj. $/Ac</div>' +
-      CHORO_FILLS.map((c,i)=>{
-        const lo = CHORO_BREAKS[i], hi = CHORO_BREAKS[i+1];
-        const lbl = hi===Infinity ? `> ${(lo/1000).toFixed(0)}K` : `${(lo/1000).toFixed(0)}K–${(hi/1000).toFixed(0)}K`;
-        return `<div class="leg-row"><span class="lsq" style="background:${c};border:1px solid rgba(255,255,255,.2)"></span>${lbl}</div>`;
-      }).join('') + '</div>';
-  }
+      return `<span class="leg
 }
 
 // Tab switcher for AVA popup
@@ -408,15 +394,12 @@ window.switchTab = function(el, tabId) {
 };
 
 // ---- Event wiring ----
-document.getElementById('colorMode').addEventListener('change', e => { colorMode=e.target.value; renderPoints(); updateLegend(); });
+
 document.getElementById('statsMode').addEventListener('change', e => { statsMode=e.target.value; buildAvaLayer(); });
-document.querySelectorAll('.fbtn').forEach(b => b.addEventListener('click', function() {
-  document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));
-  this.classList.add('active'); activeFilter=this.dataset.f; renderPoints();
-}));
-document.getElementById('chkArms').addEventListener('change',  e=>{ armsOnly=e.target.checked; renderPoints(); });
-document.getElementById('chkAcres').addEventListener('change', e=>{ acresOnly=e.target.checked; renderPoints(); });
-document.getElementById('chkQual').addEventListener('change',  e=>{ hideDOM=e.target.checked; renderPoints(); });
+
+
+
+
 document.getElementById('chkChoro').addEventListener('change', e=>{ showChoro=e.target.checked; buildAvaLayer(); updateLegend(); });
 
 // ---- Init ----
